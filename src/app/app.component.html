@@ -1,0 +1,79 @@
+<div class="que_ans">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12">
+                <div class="form">
+                    <form #userForm="ngForm">
+                        <h1 class="title">Lifelines Questionnaire 1 part 1</h1>
+                        <div class="form-check padd_top20">
+                            <input type="checkbox" name="allergies" ngModel class="form-check-input">
+                            <label class="form-check-label">
+                                <h1>1. Do you have Allergies?</h1>
+                            </label>
+                        </div>
+                        <div ngModelGroup="group1">
+                            <div class="padd_top20">
+                                <h1>2. General Questions:</h1>
+                            </div>
+                            <div class="form-group padd_top20">
+                                <label for="gender">A] What is your gender?</label>
+                                <div> <input type="gender" #gender="ngModel" required
+                                        [class.is.invalid]="gender.invalid && gender.touched" ngModel
+                                        class="form-control" name="gender">
+                                    <small class="error_text text-danger"
+                                        [class.d-none]="gender.valid || gender.untouched">Name is Required</small></div>
+                            </div>
+                            <div class="form-group padd_top20">
+                                <label for="date">B] What is your date of birth?</label>
+                                <div> <input type="date" #date="ngModel" required
+                                        [class.is.invalid]="date.invalid && date.touched" ngModel class="form-control"
+                                        name="date">
+                                    <small class="error_text text-danger"
+                                        [class.d-none]="date.valid || date.untouched">Date is Required and its in Number
+                                        format Only.</small></div>
+                            </div>
+                            <div class="form-group padd_top20">
+                                <label for="country">C] What is your country of birth?</label>
+                                <div> <input type="country" #country="ngModel" required
+                                        [class.is.invalid]="country.invalid && country.touched" ngModel
+                                        class="form-control" name="country">
+                                    <small class="error_text text-danger"
+                                        [class.d-none]="country.valid || country.untouched">Country Name is
+                                        Required</small></div>
+                            </div>
+                            <div class="form-group padd_top20">
+                                <label for="status">D] What is your marital status?</label>
+                                <div> <input type="status" #status="ngModel" required
+                                        [class.is.invalid]="status.invalid && status.touched" ngModel
+                                        class="form-control" name="status">
+                                    <small class="error_text text-danger"
+                                        [class.d-none]="status.valid || status.untouched"> Marital Status is
+                                        Required</small></div>
+                            </div>
+                        </div>
+                        <div ngModelGroup="group2" class="padd_top20">
+                            <h1>3. Intoxications:</h1>
+                            <div class="form-check padd_top20">
+                                <input type="checkbox" name="smoke" ngModel class="form-check-input">
+                                <label class="form-check-label">A] Do you smoke?</label>
+                            </div>
+                            <div class="form-check padd_top20">
+                                <input type="checkbox" name="alcohol" ngModel class="form-check-input">
+                                <label class="form-check-label">B] Do you drink alcohol?</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" click="on_submit()">Submit</button>
+
+                        <div class="answer padd_top20">
+                            <h1> Questionnaire Response</h1>
+                            <h2 *ngIf="showMe"> {{ userForm.value | json }}</h2>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
